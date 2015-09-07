@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Lightbox</title>
+    <link href="lightbox.css" rel="stylesheet">
+    <style>
+      .image {
+        width: 400px;
+        height: 300px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <p>
+      <a href="https://github.com/lipis/lightbox">View on GitHub</a> | All images are from <a href="http://www.vladstudio.com">Vladstudio</a>.
+    </p>
+
+    <img class="image" src="http://files.vladstudio.com/joy/where_tahrs_live/wall/vladstudio_where_tahrs_live_800x600_signed.jpg" data-src-big="http://files.vladstudio.com/joy/where_tahrs_live/wall/vladstudio_where_tahrs_live_1920x1440_signed.jpg">
+    <img class="image" src="http://files.vladstudio.com/joy/little_quetzal/wall/vladstudio_little_quetzal_800x600_signed.jpg" data-src-big="http://files.vladstudio.com/joy/little_quetzal/wall/vladstudio_little_quetzal_1920x1440_signed.jpg">
+    <img class="image" src="http://files.vladstudio.com/joy/robots_in_love/wall/vladstudio_robots_in_love_800x600_signed.jpg" data-src-big="http://files.vladstudio.com/joy/robots_in_love/wall/vladstudio_robots_in_love_1920x1440_signed.jpg">
+    <img class="image" src="http://files.vladstudio.com/joy/gagarin_1/wall/vladstudio_gagarin_1_800x600_signed.jpg" data-src-big="http://files.vladstudio.com/joy/gagarin_1/wall/vladstudio_gagarin_1_1920x1440_signed.jpg">
+    <img class="image" src="http://files.vladstudio.com/joy/kiwikiwi/wall/vladstudio_kiwikiwi_800x600_signed.jpg" data-src-big="http://files.vladstudio.com/joy/kiwikiwi/wall/vladstudio_kiwikiwi_1920x1440_signed.jpg">
+
+    <div class="lightbox" data-target=".image"></div>
+
+    <script src="//localhost:35729/livereload.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="lightbox.js"></script>
+    <script>
+      $('.lightbox').lightbox();
+    </script>
+  </body>
+</html>

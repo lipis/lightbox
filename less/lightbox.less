@@ -1,0 +1,21 @@
+@import 'variables';
+
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: @lightbox-bg-color;
+  padding: @lightbox-padding;
+  user-select: none;
+  .lightbox-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
