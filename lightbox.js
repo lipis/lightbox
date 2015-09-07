@@ -37,6 +37,7 @@
       boxHide = function() {
         enableScroll();
         return box.css({
+          cursor: 'default',
           display: 'none'
         });
       };
@@ -69,6 +70,17 @@
           return nextImage();
         } else {
           return prevImage();
+        }
+      });
+      box.on('mousemove', function(event) {
+        if (event.clientX > $(window).width() / 2) {
+          return box.css({
+            cursor: 'e-resize'
+          });
+        } else {
+          return box.css({
+            cursor: 'w-resize'
+          });
         }
       });
       $(window).keydown(function(event) {

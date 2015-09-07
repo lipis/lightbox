@@ -29,12 +29,12 @@
 
     boxShow = ->
       disableScroll()
-      box.css
-        display: 'block'
+      box.css display: 'block'
 
     boxHide = ->
       enableScroll()
       box.css
+        cursor: 'default'
         display: 'none'
 
     showImage = (index) ->
@@ -50,7 +50,6 @@
       next.src = images[(current + 1) % images.length].image
       prev = new Image();
       prev.src = images[(current - 1 + images.length) % images.length].image
-
       boxShow()
 
     nextImage = ->
@@ -66,6 +65,12 @@
         nextImage()
       else
         prevImage()
+
+    box.on 'mousemove', (event) ->
+      if event.clientX > $(window).width() / 2
+        box.css cursor: 'e-resize'
+      else
+        box.css cursor: 'w-resize'
 
     $(window).keydown (event) ->
       if event.which == 27 # ESC
