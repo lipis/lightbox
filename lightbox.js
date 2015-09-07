@@ -1,7 +1,7 @@
 (function() {
   (function($) {
     return jQuery.fn.lightbox = function(options) {
-      var box, boxHide, boxImage, boxShow, current, defaults, disableScroll, enableScroll, images, keys, nextImage, prevImage, preventDefault, preventDefaultForScrollKeys, settings, showImage, target;
+      var box, boxClose, boxHide, boxImage, boxShow, current, defaults, disableScroll, enableScroll, images, keys, nextImage, prevImage, preventDefault, preventDefaultForScrollKeys, settings, showImage, target;
       defaults = {
         backgroundColor: 'rgba(0, 0, 0, .8)'
       };
@@ -9,8 +9,9 @@
       images = [];
       current = 0;
       box = $(this);
-      box.append('<div class="lightbox-image"></div>');
+      box.append('<div class="lightbox-image"><a class="lightbox-close" href="">×</a></div>');
       boxImage = $('.lightbox-image', box);
+      boxClose = $('.lightbox-close', box);
       target = $(box.data('target'));
       if (target.length === 0) {
         return;
@@ -82,6 +83,11 @@
             cursor: 'w-resize'
           });
         }
+      });
+      boxClose.click(function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        return boxHide();
       });
       $(window).keydown(function(event) {
         if (event.which === 27) {

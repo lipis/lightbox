@@ -8,8 +8,9 @@
     current = 0
     box = $(@)
 
-    box.append '<div class="lightbox-image"></div>'
+    box.append '<div class="lightbox-image"><a class="lightbox-close" href="">×</a></div>'
     boxImage = $('.lightbox-image', box)
+    boxClose = $('.lightbox-close', box)
 
     target = $ box.data 'target'
     if target.length == 0
@@ -71,6 +72,11 @@
         box.css cursor: 'e-resize'
       else
         box.css cursor: 'w-resize'
+
+    boxClose.click (event) ->
+      event.preventDefault()
+      event.stopPropagation()
+      boxHide()
 
     $(window).keydown (event) ->
       if event.which == 27 # ESC

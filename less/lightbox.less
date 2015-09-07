@@ -1,12 +1,13 @@
 @import 'variables';
 
 .lightbox {
-  display: none;
+  // display: none;
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+  z-index: 10000;
   background-color: @lightbox-bg-color;
   padding: @lightbox-padding;
   user-select: none;
@@ -17,5 +18,22 @@
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: contain;
+  }
+  .lightbox-close {
+    display: block;
+    position: absolute;
+    top: @lightbox-close-offset;
+    right: @lightbox-close-offset;
+    color: @lightbox-close-color;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: @lightbox-close-size;
+    width: @lightbox-close-size;
+    height: @lightbox-close-size;
+    line-height: @lightbox-close-size;
+    text-align: center;
+    &:hover {
+      color: @lightbox-close-color-hover;
+    }
   }
 }
